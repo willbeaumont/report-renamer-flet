@@ -24,10 +24,10 @@ class ReportRenamer:
         home_dir = os.path.expanduser("~")
         return self.destination_dir.replace(home_dir, "~")
 
-    def __get_destination_dir(self, destination):
+    def __get_destination_dir(self, destination, default_prefix="renamed_recordings"):
         if not destination:
             parent_dir = os.path.dirname(self.source_dir)
-            return os.path.join(parent_dir, f"renamed_recordings_{self.recording_date}")
+            return os.path.join(parent_dir, f"{default_prefix}_{self.recording_date}")
 
         return destination
 
